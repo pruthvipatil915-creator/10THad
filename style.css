@@ -1,0 +1,323 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #172b4d;
+  background: #f2f6fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --blue: #1769d2;
+  --blue-dark: #1258b5;
+  --border: #d5deeb;
+  --muted: #63738a;
+  --red: #c63737;
+  --green: #16824b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(70, 139, 230, 0.12), transparent 28rem),
+    #f2f6fc;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.page-shell {
+  display: grid;
+  min-height: 100vh;
+  padding: 40px 20px;
+  place-items: center;
+}
+
+.registration-card {
+  width: min(100%, 760px);
+  padding: 38px 42px 30px;
+  border: 1px solid #e4eaf3;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 18px 55px rgba(31, 62, 107, 0.12);
+}
+
+.card-header {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--blue);
+  font-size: 0.73rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+h1 {
+  margin: 9px 0 7px;
+  color: #142b4d;
+  font-size: clamp(1.7rem, 4vw, 2.15rem);
+  letter-spacing: -0.035em;
+}
+
+.card-header p,
+.privacy-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 19px 20px;
+}
+
+.field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
+.field > label,
+.choice-field legend {
+  color: #263b59;
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+.field input:not([type="radio"]):not([type="checkbox"]),
+.field select {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 13px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: #172b4d;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.field input::placeholder {
+  color: #8b98aa;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(23, 105, 210, 0.13);
+}
+
+.field input[aria-invalid="true"],
+.field select[aria-invalid="true"] {
+  border-color: var(--red);
+}
+
+.field input[aria-invalid="false"],
+.field select[aria-invalid="false"] {
+  border-color: var(--green);
+}
+
+.field-hint,
+.field-message {
+  min-height: 0.9em;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.field-hint {
+  color: var(--muted);
+}
+
+.field-message:empty {
+  display: none;
+}
+
+.field-message {
+  color: var(--red);
+}
+
+.field-message.is-valid {
+  color: var(--green);
+}
+
+.choice-field {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.choice-field legend {
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.choice-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.choice-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #344861;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.choice-option input {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: var(--blue);
+}
+
+.terms-field {
+  gap: 7px;
+}
+
+.terms-field .choice-option {
+  align-self: flex-start;
+}
+
+.password-toggle-row {
+  margin-top: -10px;
+}
+
+.text-button {
+  align-self: flex-start;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--blue);
+  font-size: 0.84rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.text-button:hover {
+  color: var(--blue-dark);
+  text-decoration: underline;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.button {
+  min-height: 46px;
+  padding: 10px 19px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button-primary {
+  flex: 1;
+  background: var(--blue);
+  color: #fff;
+}
+
+.button-primary:hover {
+  background: var(--blue-dark);
+}
+
+.button-secondary {
+  border-color: var(--border);
+  background: #fff;
+  color: #344861;
+}
+
+.button-secondary:hover {
+  background: #f5f8fc;
+}
+
+.success-message {
+  margin: -8px 0 22px;
+  padding: 13px 15px;
+  border: 1px solid #b5e2c8;
+  border-radius: 9px;
+  background: #effaf3;
+  color: #17643c;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.success-message[hidden] {
+  display: none;
+}
+
+.privacy-note {
+  margin-top: 24px;
+  padding-top: 17px;
+  border-top: 1px solid #edf1f6;
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(23, 105, 210, 0.35);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .page-shell {
+    padding: 18px 12px;
+  }
+
+  .registration-card {
+    padding: 28px 21px 23px;
+    border-radius: 14px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .field-full {
+    grid-column: auto;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
